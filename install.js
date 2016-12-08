@@ -110,6 +110,7 @@ function findSuitableTempDirectory(npmConf) {
 
 function getRequestOptions(proxyUrl) {
   var options
+  console.log(proxyUrl)
   if (proxyUrl) {
     options = url.parse(proxyUrl)
     options.path = downloadUrl
@@ -122,6 +123,7 @@ function getRequestOptions(proxyUrl) {
   } else {
     options = url.parse(downloadUrl)
   }
+  console.log(options)
 
   options.rejectUnauthorized = !!process.env.npm_config_strict_ssl
 
