@@ -113,7 +113,7 @@ function getRequestOptions(proxyUrl) {
   if (proxyUrl) {
     options = url.parse(proxyUrl)
     options.path = downloadUrl
-    options.headers = { Host: url.parse(downloadUrl).host }
+    options.headers = { Host: url.parse(downloadUrl).host + ':' + (url.parse(downloadUrl).port || url.parse(downloadUrl).protocol === 'https:' ? 443 : 80) }
     // Turn basic authorization into proxy-authorization.
     if (options.auth) {
       options.headers['Proxy-Authorization'] = 'Basic ' + new Buffer(options.auth).toString('base64')
