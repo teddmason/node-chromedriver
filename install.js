@@ -59,7 +59,7 @@ npmconf.load(function(err, conf) {
   promise = promise.then(function () {
     console.log('Downloading', downloadUrl)
     console.log('Saving to', downloadedFile)
-    return requestBinary(getRequestOptions(conf.get('proxy')), downloadedFile)
+    return requestBinary(getRequestOptions(conf.get('https-proxy')), downloadedFile)
   })
 
   promise.then(function () {
